@@ -36,7 +36,9 @@ public class BookController {
         HashMap<Integer,String> map=new HashMap<>();
         try
         {
-            for(Book book:books)
+            ObjectInputStream ob=new ObjectInputStream(new FileInputStream("mytext.txt"));
+            List<Book> books1=(List<Book>) ob.readObject();
+            for(Book book:books1)
             {
               map.put(book.getBcode(),book.getBname());
             }
